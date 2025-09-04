@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hydro Intelligence — 简洁网站示例</title>
+  <meta name="description" content="一个可直接部署到 GitHub Pages 的简洁单页网站模板。" />
+  <meta property="og:title" content="Hydro Intelligence — 简洁网站示例" />
+  <meta property="og:description" content="一个可直接部署到 GitHub Pages 的简洁单页网站模板。" />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23007aff'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-family='Arial' font-size='52' fill='white'%3EH%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --primary: #2563eb; /* blue-600 */
+      --primary-2: #1e40af; /* blue-800 */
+      --card: #f8fafc; /* slate-50 */
+      --border: #e2e8f0; /* slate-200 */
+      --shadow: 0 10px 20px rgba(2,6,23,.06), 0 2px 6px rgba(2,6,23,.04);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1020;
+        --fg: #e5e7eb;
+        --muted: #9aa4b2;
+        --primary: #60a5fa;
+        --primary-2: #93c5fd;
+        --card: #0f172a;
+        --border: #1f2937;
+        --shadow: 0 10px 20px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: color-mix(in srgb, var(--bg), transparent 10%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: .9rem 0; }
+    .logo { display: inline-flex; align-items: center; gap: .6rem; font-weight: 700; }
+    .logo-badge {
+      width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center;
+      background: var(--primary); color: #fff; box-shadow: var(--shadow);
+      font-weight: 800; letter-spacing: .5px;
+    }
+    .nav-links { display: flex; gap: 1rem; font-size: .95rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem; 
+      border: 1px solid var(--border); border-radius: .75rem; padding: .55rem .9rem; 
+      background: var(--bg); color: var(--fg); box-shadow: var(--shadow);
+    }
+    .btn.primary { background: var(--primary); color: #fff; border-color: transparent; }
+    .btn.primary:hover { filter: brightness(1.05); }
+
+    /* Hero */
+    .hero { padding: 6rem 0 4rem; display: grid; gap: 2rem; align-items: center; }
+    @media (min-width: 880px) { .hero { grid-template-columns: 1.1fr .9fr; } }
+    .hero h1 { font-size: clamp(2rem, 3.6vw + 1rem, 3.2rem); line-height: 1.15; margin: 0 0 1rem; }
+    .hero p.lead { font-size: clamp(1rem, 1.1vw + .8rem, 1.2rem); color: var(--muted); margin: 0 0 1.6rem; }
+    .hero .cta { display: flex; gap: .8rem; flex-wrap: wrap; }
+    .hero-visual { background: radial-gradient(1200px 500px at 10% -10%, color-mix(in srgb, var(--primary), transparent 70%), transparent 70%),
+                                  linear-gradient(135deg, color-mix(in srgb, var(--primary-2), transparent 60%), transparent 30%);
+      border: 1px solid var(--border); border-radius: 1.25rem; box-shadow: var(--shadow);
+      padding: 1.2rem; height: 100%;
+    }
+    .hero-card { background: var(--card); border: 1px solid var(--border); border-radius: 1rem; padding: 1rem; }
+    .grid { display: grid; gap: 1rem; }
+    .grid.two { grid-template-columns: 1fr; }
+    .grid.three { grid-template-columns: 1fr; }
+    @media (min-width: 700px) { .grid.two { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .grid.three { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Sections */
+    section { padding: 3rem 0; }
+    .section-title { font-size: 1.6rem; margin: 0 0 1rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 1rem; padding: 1.1rem; box-shadow: var(--shadow); }
+    .muted { color: var(--muted); }
+
+    .feature { display: flex; gap: .9rem; }
+    .feature .icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: color-mix(in srgb, var(--primary), transparent 80%); color: var(--primary-2); font-weight: 700; }
+
+    footer { padding: 2.5rem 0; border-top: 1px solid var(--border); font-size: .95rem; color: var(--muted); }
+    .small { font-size: .9rem; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; background: var(--card); border:1px solid var(--border); padding: .1em .4em; border-radius: .4em; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><span class="logo-badge">H</span>Hydro Intelligence</div>
+      <nav class="nav-links">
+        <a href="#about">关于</a>
+        <a href="#services">服务</a>
+        <a href="#news">动态</a>
+        <a href="#contact" class="btn">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>面向城市水务的数字化与智能化解决方案</h1>
+        <p class="lead">这是一个可直接部署到 <span class="kbd">GitHub Pages</span> 的极简网站模板。你可以把它作为公司主页、产品介绍或个人作品集的起点。</p>
+        <div class="cta">
+          <a class="btn primary" href="#deploy">一键部署指南</a>
+          <a class="btn" href="#services">查看功能</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="grid two">
+          <div class="hero-card">
+            <strong>数据资产</strong>
+            <p class="small muted">统一数据底座、标准化采集、资产化管理。</p>
+          </div>
+          <div class="hero-card">
+            <strong>智慧运营</strong>
+            <p class="small muted">供排水一体化调度、能耗与漏损优化。</p>
+          </div>
+          <div class="hero-card">
+            <strong>数字孪生</strong>
+            <p class="small muted">GIS + 模型 + 监测的一张图指挥。</p>
+          </div>
+          <div class="hero-card">
+            <strong>AI 助手</strong>
+            <p class="small muted">从巡检到预警决策的自动化工作流。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">关于我们</h2>
+      <div class="card">
+        <p>我们专注于智慧水务与市政基础设施的数字化升级，提供从数据治理、物联监测到 AI 决策的全链路解决方案。此模板仅作示例，你可以将文本替换为公司的真实介绍、里程碑与客户案例。</p>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">核心服务</h2>
+      <div class="grid three">
+        <div class="card feature">
+          <div class="icon">1</div>
+          <div>
+            <strong>项目咨询</strong>
+            <p class="muted small">顶层设计、可研与标准合规梳理。</p>
+          </div>
+        </div>
+        <div class="card feature">
+          <div class="icon">2</div>
+          <div>
+            <strong>数据与平台</strong>
+            <p class="muted small">数据要素入表、资产盘点、平台集成。</p>
+          </div>
+        </div>
+        <div class="card feature">
+          <div class="icon">3</div>
+          <div>
+            <strong>智能体应用</strong>
+            <p class="muted small">巡检助手、报警联动、优化与预测。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <h2 class="section-title">最新动态</h2>
+      <div class="grid two">
+        <article class="card">
+          <h3 style="margin:.2rem 0 .4rem;">新品上线：水务数据资产引擎</h3>
+          <p class="muted small">支持多源接入、口径统一、指标体系与资产负债映射。</p>
+        </article>
+        <article class="card">
+          <h3 style="margin:.2rem 0 .4rem;">活动：智慧水务主题沙龙</h3>
+          <p class="muted small">聚焦数字孪生、AI 赋能与投融资实践，诚邀业内交流。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="deploy">
+      <h2 class="section-title">部署到 GitHub Pages</h2>
+      <div class="card">
+        <ol class="small">
+          <li>在 GitHub 新建仓库（建议名：<code>your-username.github.io</code>）。</li>
+          <li>把本页保存为 <code>index.html</code> 放进仓库根目录并提交。</li>
+          <li>打开仓库 <em>Settings → Pages</em>，<strong>Build and deployment</strong> 选择 <em>Branch: main / folder: /root</em>。</li>
+          <li>几秒后访问：<code>https://your-username.github.io/</code> 即可看到网站。</li>
+        </ol>
+        <details>
+          <summary>使用命令行（可选）</summary>
+          <pre class="small" style="white-space:pre-wrap;">git init
+git add index.html
+git commit -m "init site"
+git branch -M main
+git remote add origin https://github.com/&lt;your-username&gt;/&lt;your-repo&gt;.git
+git push -u origin main</pre>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">联系</h2>
+      <div class="card">
+        <p class="small">邮箱：<a href="mailto:hello@example.com">hello@example.com</a>　|　微信：your-wechat-id　|　地址：北京市·海淀区（示例）</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="y"></span> Hydro Intelligence. 保留所有权利。</div>
+    </div>
+  </footer>
+
+  <script>
+    // 自动年份
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
