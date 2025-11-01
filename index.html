@@ -1,214 +1,63 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hydro Intelligence — Minimal Website Template</title>
-  <meta name="description" content="A clean single‑file website you can deploy directly to GitHub Pages." />
-  <meta property="og:title" content="Hydro Intelligence — Minimal Website Template" />
-  <meta property="og:description" content="A clean single‑file website you can deploy directly to GitHub Pages." />
-  <meta property="og:type" content="website" />
-  <meta name="color-scheme" content="light dark" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23007aff'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-family='Arial' font-size='52' fill='white'%3EH%3C/text%3E%3C/svg%3E" />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #0f172a; /* slate-900 */
-      --muted: #475569; /* slate-600 */
-      --primary: #2563eb; /* blue-600 */
-      --primary-2: #1e40af; /* blue-800 */
-      --card: #f8fafc; /* slate-50 */
-      --border: #e2e8f0; /* slate-200 */
-      --shadow: 0 10px 20px rgba(2,6,23,.06), 0 2px 6px rgba(2,6,23,.04);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b1020;
-        --fg: #e5e7eb;
-        --muted: #9aa4b2;
-        --primary: #60a5fa;
-        --primary-2: #93c5fd;
-        --card: #0f172a;
-        --border: #1f2937;
-        --shadow: 0 10px 20px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25);
-      }
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-    }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { width: min(1100px, 92%); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: saturate(180%) blur(10px);
-      background: color-mix(in srgb, var(--bg), transparent 10%);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: .9rem 0; }
-    .logo { display: inline-flex; align-items: center; gap: .6rem; font-weight: 700; }
-    .logo-badge {
-      width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center;
-      background: var(--primary); color: #fff; box-shadow: var(--shadow);
-      font-weight: 800; letter-spacing: .5px;
-    }
-    .nav-links { display: flex; gap: 1rem; font-size: .95rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: .5rem; 
-      border: 1px solid var(--border); border-radius: .75rem; padding: .55rem .9rem; 
-      background: var(--bg); color: var(--fg); box-shadow: var(--shadow);
-    }
-    .btn.primary { background: var(--primary); color: #fff; border-color: transparent; }
-    .btn.primary:hover { filter: brightness(1.05); }
+---
+title: The Future of Water, Today
+description: Improving the water industry with data-driven approaches
+---
+<section class="hero">
+	<div class="text-container">
+		<h1 class="editable"><strong>The Future of Water, Today</strong> </h1>
+		<p class="subtext editable">Improving the water industry with data-driven approaches.</p>
+	</div>
+</section>
 
-    /* Hero */
-    .hero { padding: 6rem 0 4rem; display: grid; gap: 2rem; align-items: center; }
-    @media (min-width: 880px) { .hero { grid-template-columns: 1.1fr .9fr; } }
-    .hero h1 { font-size: clamp(2rem, 3.6vw + 1rem, 3.2rem); line-height: 1.15; margin: 0 0 1rem; }
-    .hero p.lead { font-size: clamp(1rem, 1.1vw + .8rem, 1.2rem); color: var(--muted); margin: 0 0 1.6rem; }
-    .hero .cta { display: flex; gap: .8rem; flex-wrap: wrap; }
-    .hero-visual { background: radial-gradient(1200px 500px at 10% -10%, color-mix(in srgb, var(--primary), transparent 70%), transparent 70%),
-                                  linear-gradient(135deg, color-mix(in srgb, var(--primary-2), transparent 60%), transparent 30%);
-      border: 1px solid var(--border); border-radius: 1.25rem; box-shadow: var(--shadow);
-      padding: 1.2rem; height: 100%;
-    }
-    .hero-card { background: var(--card); border: 1px solid var(--border); border-radius: 1rem; padding: 1rem; }
-    .grid { display: grid; gap: 1rem; }
-    .grid.two { grid-template-columns: 1fr; }
-    .grid.three { grid-template-columns: 1fr; }
-    @media (min-width: 700px) { .grid.two { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 900px) { .grid.three { grid-template-columns: repeat(3, 1fr); } }
+<div class="content">
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>How can we reduce leakage?</h2>
+				<p>We can reduce leakage by implementing advanced monitoring systems, real-time data analysis, and predictive maintenance technologies to detect and repair leaks before they cause significant damage. </p>
+			</div>
+			<div class="image">
+				<img src="{{ site.baseurl }}/images/leak.png" alt="Screenshot" class="screenshot editable" />
+			</div>
+		</div>
+	</section>
 
-    /* Sections */
-    section { padding: 3rem 0; }
-    .section-title { font-size: 1.6rem; margin: 0 0 1rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 1rem; padding: 1.1rem; box-shadow: var(--shadow); }
-    .muted { color: var(--muted); }
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>How can we detect external water intrusion?</h2>
+				<p>External water intrusion can be detected using smart sensors, IoT-enabled systems, and data analytics to monitor water quality and flow patterns, allowing us to identify unauthorized water sources and prevent contamination.</p>
+			</div>
+			<div class="image">
+				<img src="{{ site.baseurl }}/images/ii.png" alt="Screenshot" class="screenshot editable" />
+			</div>
+		</div>
+	</section>
 
-    .feature { display: flex; gap: .9rem; }
-    .feature .icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: color-mix(in srgb, var(--primary), transparent 80%); color: var(--primary-2); font-weight: 700; }
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>How can we reduce flood risks?</h2>
+				<p>Flood risks can be mitigated through predictive modeling, real-time weather monitoring, and smart drainage systems that enable timely interventions and efficient stormwater management.</p>
+			</div>
+			<div class="image">
+				<img src="{{ site.baseurl }}/images/flood.png" alt="Screenshot" class="screenshot editable" />
+			</div>
+		</div>
+	</section>
 
-    footer { padding: 2.5rem 0; border-top: 1px solid var(--border); font-size: .95rem; color: var(--muted); }
-    .small { font-size: .9rem; }
-    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; background: var(--card); border:1px solid var(--border); padding: .1em .4em; border-radius: .4em; }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <div class="logo"><span class="logo-badge">H</span>Hydro Intelligence</div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#news">Updates</a>
-        <a href="#contact" class="btn">Contact</a>
-      </nav>
-    </div>
-  </header>
+	<section class="testimonial">
+		<div class="container flex">
+			<div class="testimonial-block">
+				<div class="square-image"><img src="https://source.unsplash.com/6anudmpILw4/600x400" alt="Jim James" class="editable"></div>
+				<blockquote>
+					<p class="editable">Digitalization, Intelligence, and Smart Technologies:
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <h1>Digital & AI Solutions for Urban Water Management</h1>
-        <p class="lead">This is a minimalist single‑page template you can deploy to <span class="kbd">GitHub Pages</span> in minutes. Use it for a company homepage, product intro, or personal portfolio.</p>
-        <div class="cta">
-          <a class="btn primary" href="#deploy">Deploy Guide</a>
-          <a class="btn" href="#services">Explore Features</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="grid two">
-          <div class="hero-card">
-            <strong>Data Assets</strong>
-            <p class="small muted">Unified data fabric, standardized collection, asset‑level governance.</p>
-          </div>
-          <div class="hero-card">
-            <strong>Smart Operations</strong>
-            <p class="small muted">Integrated water supply & drainage, energy and NRW optimization.</p>
-          </div>
-          <div class="hero-card">
-            <strong>Digital Twins</strong>
-            <p class="small muted">One operational map: GIS + models + telemetry.</p>
-          </div>
-          <div class="hero-card">
-            <strong>AI Copilots</strong>
-            <p class="small muted">From inspection to early‑warning and decision automation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+By leveraging digitalization, we integrate real-time data collection and analysis to optimize decision-making. Intelligent systems, powered by AI and machine learning, can predict and prevent issues like leakage and flooding, while smart technologies enhance the overall resilience and efficiency of water infrastructure.</p>
+					<p class="editable author">Yansong Liang - CEO of Hydro Intelligence LLC.</p>
+				</blockquote>
+			</div>
+		</div>
+	</section>
 
-    <section id="about">
-      <h2 class="section-title">About</h2>
-      <div class="card">
-        <p>Hydro Intelligence focuses on digital transformation for smart water and municipal infrastructure. We provide end‑to‑end solutions from data governance and IoT sensing to AI‑assisted decisioning. Replace this text with your real company profile, milestones, and customer stories.</p>
-      </div>
-    </section>
-
-    <section id="services">
-      <h2 class="section-title">Core Services</h2>
-      <div class="grid three">
-        <div class="card feature">
-          <div class="icon">1</div>
-          <div>
-            <strong>Advisory</strong>
-            <p class="muted small">Top‑level design, feasibility, and compliance with standards.</p>
-          </div>
-        </div>
-        <div class="card feature">
-          <div class="icon">2</div>
-          <div>
-            <strong>Data & Platforms</strong>
-            <p class="muted small">Data factor cataloging, asset inventory, platform integration.</p>
-          </div>
-        </div>
-        <div class="card feature">
-          <div class="icon">3</div>
-          <div>
-            <strong>AI Applications</strong>
-            <p class="muted small">Inspection copilots, alarm orchestration, optimization & forecasting.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="news">
-      <h2 class="section-title">Updates</h2>
-      <div class="grid two">
-        <article class="card">
-          <h3 style="margin:.2rem 0 .4rem;">New: Water Data Asset Engine</h3>
-          <p class="muted small">Multi‑source ingestion, unified metrics, and mapping to balance‑sheet views.</p>
-        </article>
-        <article class="card">
-          <h3 style="margin:.2rem 0 .4rem;">Event: Smart Water Salon</h3>
-          <p class="muted small">Digital twins, AI enablement, and financing practice—join the conversation.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <div class="card">
-        <p class="small">Email: <a href="mailto:contract@hydro-intelligence.com">contract@hydro-intelligence.com</a>  |  Web: <a href="https://hydro-intelligence.com" target="_blank" rel="noopener">http://www.hydro-intelligence.com</a></p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div>© <span id="y"></span> Hydro Intelligence. All rights reserved.</div>
-    </div>
-  </footer>
-
-  <script>
-    // Auto year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+</div>

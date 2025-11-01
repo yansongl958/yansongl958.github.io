@@ -1,0 +1,19 @@
+- links:
+  - name: About
+    link: /about/
+  - name: Contact
+    link: /contact/
+- links:
+  - name: Products
+    link: /products/
+  - name: Solutions
+    link: /solutions/
+- links:
+  - name: Facebook
+    link: https://facebook.com/cloudcannon/
+    new_window: true
+    social_icon: Facebook
+  - name: Twitter
+    link: https://twitter.com/cloudcannon/
+    social_icon: Twitter
+    new_window: true
